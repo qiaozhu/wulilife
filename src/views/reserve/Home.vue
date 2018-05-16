@@ -1,24 +1,26 @@
 <template>
-  <div>
+  <div>3
     <router-view></router-view>
     <tabbar style="position:fixed">
-      <tabbar-item>
+      <tabbar-item selected
+        link="/icondemo">
         <img slot="icon"
           src="../../assets/img/tabbar1.png">
         <span slot="label">Wechat</span>
       </tabbar-item>
-      <tabbar-item show-dot>
+      <tabbar-item show-dot
+        link="/tabledemo">
         <img slot="icon"
           src="../../assets/img/tabbar2.png">
         <span slot="label">Message</span>
       </tabbar-item>
-      <tabbar-item selected
-        link="/btndemo">
+      <tabbar-item link="/btndemo">
         <img slot="icon"
           src="../../assets/img/tabbar3.png">
         <span slot="label">Explore</span>
       </tabbar-item>
-      <tabbar-item badge="2">
+      <tabbar-item badge="2"
+        link="/uploadfile">
         <img slot="icon"
           src="../../assets/img/tabbar4.png">
         <span slot="label">News</span>
@@ -37,6 +39,12 @@ export default {
     Group,
     Cell
   }
+  // watch: {
+  //   '$route': function(to, from) {
+  //     console.log(this.$store.state);
+  //     console.log('router lanjie');
+  //   }
+  // }
 };
 </script>
 <style lang="less">

@@ -11,7 +11,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/WXClass': {
-        target: 'http://192.168.2.143:3000/WXClass',
+        target: 'http://192.168.11.82:3000/WXClass',
         changeOrigin: true,
         pathRewrite: {
           '^/WXClass': ''
