@@ -11,9 +11,7 @@ Vue.use(Vuex);
 const moduledata = {
   modulekey: 'reserve',
   modulename: '预约打印',
-  _data: {
-    text: '其他数据'
-  }
+  printData: {} //打印相关数据
 };
 
 // 定义vuex

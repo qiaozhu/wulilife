@@ -1,8 +1,8 @@
 <template>
-  <div class="main-container">
+  <div class="layout-content">
     <div class="van-center"
       style="padding-top: 35px;">
-      <img src="../../assets/img/vux_logo.png"
+      <img src="../../assets/img/vue-logo.png"
         alt=""
         class="print-logo">
     </div>
@@ -117,22 +117,6 @@ export default {
 </script>
 
 <style>
-  body {
-    font-family: '微软雅黑';
-    background: #f4f4f4;
-    color: #333;
-  }
-
-  a,
-  a:hover,
-  a:active {
-    text-decoration: none;
-  }
-
-  .main-container {
-    font-size: 16px;
-  }
-
   .van-center {
     text-align: center;
   }

@@ -1,0 +1,76 @@
+<template>
+  <div class="layout-content">
+    <div class="print-logo-box">
+      <img src="../../assets/img/print-logo.png"
+        class="print-logo"
+        alt="">
+    </div>
+    <div class="doc-title">选择门店</div>
+    <div class="doc-subtitle">请选择就近门店，方便取件。</div>
+    <group title="选择门店">
+      <popup-picker title="门店"
+        placeholder="请选择"
+        popup-title="请选择"
+        :data="list"
+        v-model="storeVal"
+        @on-show="onShow"
+        @on-hide="onHide"
+        @on-change="onChange"
+        show-name>
+        <!-- <template slot="title"
+          slot-scope="props">
+          <span :class="props.labelClass"
+            :style="props.labelStyle"
+            style="height:24px;">
+            <span class="demo-icon demo-icon-big"
+              style="font-size:20px;vertical-align:middle;"></span>
+            <span style="vertical-align:middle;">手机</span>
+          </span>
+        </template> -->
+      </popup-picker>
+    </group>
+    <div class="button-box">
+      <x-button type="primary"
+        @click.native="onJumpStep">确定</x-button>
+    </div>
+  </div>
+</template>
+
+<script>
+import common from '@/utils/common';
+import { PopupPicker, Group, Cell, CellBox, XButton } from 'vux';
+
+export default {
+  components: {
+    Group,
+    PopupPicker,
+    Cell,
+    CellBox,
+    XButton
+  },
+  data: function() {
+    return {
+      list: [[{ name: '广东', value: 'gd' }, { name: '广西', value: 'gx' }]],
+      storeVal: [],
+      storeValObj: {}
+    };
+  },
+  created() {},
+  methods: {
+    // 选项变更保存选中对象
+    onChange(val) {
+      this.storeValObj = common.getArrayObject(val, 'value', this.list[0]);
+    },
+    onJumpStep() {
+      let printData = { ...this.$store.state.printData };
+      printData.storeData = this.storeValObj;
+      // 将选中门店数据存入store
+      this.$store.dispatch('changePrintdata', printData);
+      this.$router.push({ path: '/index' });
+    }
+  }
+};
+</script>
+
+<style>
+</style>

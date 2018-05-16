@@ -3,11 +3,11 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-// 待签收
-import IconDemo from '@/views/reserve/IconDemo';
-//在途
-var BtnDemo = function(resolve) {
-  require(['@/views/reserve/BtnDemo'], resolve);
+// 首页
+import ReserveIndex from '@/views/reserve/ReserveIndex';
+// 选择门店
+var ChioceStore = function(resolve) {
+  require(['@/views/reserve/ChioceStore'], resolve);
 };
 //在途
 var UploadFile = function(resolve) {
@@ -26,26 +26,21 @@ var routeData = [
   {
     path: '/',
     name: 'Home',
-    component: IconDemo,
+    component: ReserveIndex,
     meta: {
       // 路由可以带自定义参数
-      active: '/reserve'
+      active: '/reserveindex'
     }
   },
   {
-    path: '/test',
-    name: 'Test',
-    component: IconDemo
+    path: '/index',
+    name: 'ReserveIndex',
+    component: ReserveIndex
   },
   {
-    path: '/icondemo',
-    name: 'IconDemo',
-    component: IconDemo
-  },
-  {
-    path: '/btndemo',
-    name: 'BtnDemo',
-    component: BtnDemo
+    path: '/chiocestore',
+    name: 'ChioceStore',
+    component: ChioceStore
   },
   {
     path: '/uploadfile',

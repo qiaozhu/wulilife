@@ -6,6 +6,7 @@ console.log('this node_env is ' + NODE_ENV);
 // 内网配置
 const devconfig = {
   domain: '/WXClass/',
+  linkdomain: 'http://localhost:8080/',
   appcode: '200362',
   version: '1.0',
   uploadurl: '../sjbWeb/upload'
@@ -14,6 +15,7 @@ const devconfig = {
 // 生产配置
 const propconfig = {
   domain: 'trade',
+  linkdomain: 'http://localhost:8080/',
   appcode: '200336',
   version: '1.0',
   uploadurl: './sjbWeb/upload'

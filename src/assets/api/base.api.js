@@ -4,5 +4,6 @@ const domain = config.domain;
 export default {
   domain: domain,
   queryWXuserOpenid: domain + 'queryWXuserOpenid',
-  upload: domain + 'upload'
+  upload: domain + 'upload',
+  test: domain + 'test'
 };

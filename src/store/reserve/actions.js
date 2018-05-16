@@ -9,12 +9,8 @@ export default {
   changeGlobal({ commit }, data) {
     commit(types.CHANGE_GLOBAL, data);
   },
-  // 同步左侧菜单选中
-  changeMenuaction({ commit }, data) {
-    commit(types.CHANGE_MENUACTION, data);
-  },
-  // 同步省市区数据
-  changeRegion({ commit }, data) {
-    commit(types.CHANGE_REGION, data);
+  // 同步打印数据
+  changePrintdata({ commit }, data) {
+    commit(types.CHANGE_PRINTDATA, data);
   }
 };

@@ -17,7 +17,6 @@ Vue.config.productionTip = false;
 // 如果有全局依赖数据 在这里做promise
 import depend from '@/utils/depend';
 depend.then(data => {
-  store.state.gdata = data;
   console.log('entry lanjie');
   new Vue({
     router,

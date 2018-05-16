@@ -10,7 +10,7 @@ import api from '@/assets/api/reserve.api';
 export default new Promise((resolve, reject) => {
   axios({
     method: 'post',
-    url: '/WXClass/upload',
+    url: '/WXClass/test',
     data: {
       mobile: '18671451730',
       smsNum: '111111'

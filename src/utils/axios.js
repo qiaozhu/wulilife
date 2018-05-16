@@ -19,7 +19,7 @@ axios.interceptors.request.use(
       // 默认参数silent为true 会添加loading
       // 不需要loading 请设置config的silent为false
       Vue.$vux.loading.show({
-        text: 'Loading'
+        text: '加载中'
       });
     }
 
@@ -80,6 +80,9 @@ axios.interceptors.response.use(
   error => {
     // 关闭loaading
     Vue.$vux.loading.hide();
+    console.log(error);
+    console.log(error.response);
+    console.log(error.response.status);
     switch (error.response.status) {
       case 400:
         Vue.$vux.toast.show({
