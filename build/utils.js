@@ -46,7 +46,10 @@ exports.cssLoaders = function(options) {
     if (options.extract) {
       return ExtractTextPlugin.extract({
         use: loaders,
-        fallback: 'vue-style-loader'
+        fallback: 'vue-style-loader',
+        /* 多页面配置修改 解决css中引用图片路径问题 begin */
+        publicPath: '../../'
+        /* 多页面配置修改 解决css中引用图片路径问题 begin */
       });
     } else {
       return ['vue-style-loader'].concat(loaders);

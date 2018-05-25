@@ -62,8 +62,10 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-
+    // assetsPublicPath: '/',
+    /* 多页面配置修改 打包资源路径修改 begin */
+    assetsPublicPath: './',
+    /* 多页面配置修改 打包资源路径修改 begin */
     /**
      * Source Maps
      */
