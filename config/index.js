@@ -10,11 +10,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/WXClass': {
-        target: 'http://192.168.2.143:3000/WXClass',
+      '/qiaodev': {
+        target: 'http://192.168.11.82:3000/qiaodev',
         changeOrigin: true,
         pathRewrite: {
-          '^/WXClass': ''
+          '^/qiaodev': ''
         }
       }
     },
@@ -22,6 +22,7 @@ module.exports = {
     // Various Dev Server settings
     host: '0.0.0.0', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    defaultHtml: 'reserve.html',
     autoOpenBrowser: false,
     errorOverlay: true,
     notifyOnErrors: true,

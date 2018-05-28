@@ -9,8 +9,8 @@ import api from '@/assets/api/reserve.api';
 
 export default new Promise((resolve, reject) => {
   axios({
-    method: 'post',
-    url: '/WXClass/test',
+    method: 'get',
+    url: '/qiaodev/dev/query',
     data: {
       mobile: '18671451730',
       smsNum: '111111'
