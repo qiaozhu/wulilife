@@ -9,13 +9,17 @@ import ReserveIndex from '@/views/reserve/ReserveIndex';
 var ChioceStore = function(resolve) {
   require(['@/views/reserve/ChioceStore'], resolve);
 };
-//在途
+// 文件上传
 var UploadFile = function(resolve) {
   require(['@/views/reserve/UploadFile'], resolve);
 };
-//在途
-var TableDemo = function(resolve) {
-  require(['@/views/reserve/TableDemo'], resolve);
+// 打印设置
+var SetConfig = function(resolve) {
+  require(['@/views/reserve/SetConfig'], resolve);
+};
+// 支付
+var Payment = function(resolve) {
+  require(['@/views/reserve/Payment'], resolve);
 };
 // 路由数据
 var routeData = [
@@ -48,9 +52,14 @@ var routeData = [
     component: UploadFile
   },
   {
-    path: '/tabledemo',
-    name: 'TableDemo',
-    component: TableDemo
+    path: '/setconfig',
+    name: 'SetConfig',
+    component: SetConfig
+  },
+  {
+    path: '/payment',
+    name: 'Payment',
+    component: Payment
   }
 ];
 // 初始化路由

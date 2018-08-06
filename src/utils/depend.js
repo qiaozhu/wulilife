@@ -8,6 +8,8 @@ import axios from '@/utils/axios';
 import api from '@/assets/api/reserve.api';
 
 export default new Promise((resolve, reject) => {
+  resolve();
+  return;
   axios({
     method: 'get',
     url: '/qiaodev/dev/query',

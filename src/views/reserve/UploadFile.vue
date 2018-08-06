@@ -42,38 +42,58 @@
       </div>
     </div>
     <div class="submit-box">
-      <button class="submit-btn"
-        @click="onSubmitFile">确定</button>
-      <button class="submit-btn default"
-        style="margin-top:15px"
-        @click="onBack">返回</button>
+      <x-button type="primary"
+        @click.native="onSubmitFile">确定</x-button>
+      <x-button @click.native="onBack">返回</x-button>
     </div>
   </div>
 </template>
 
 <script>
-// import方式
+import { XButton } from 'vux';
+import { mapState } from 'vuex';
 export default {
+  components: {
+    XButton
+  },
   data: function() {
     return {
-      title: 'XXX平台首页',
       fileList: [
         {
           filename: '理综试卷.pdf',
-          filetype: 'pdf'
+          filetype: 'pdf',
+          number: 1,
+          size: ['A4'],
+          color: ['黑白'],
+          page: ['单面'],
+          composite: []
         },
         {
           filename: '准考证.png',
-          filetype: 'png'
+          filetype: 'png',
+          number: 1,
+          size: ['A4'],
+          color: ['黑白'],
+          page: ['单面'],
+          composite: []
         }
       ]
     };
   },
+  computed: {
+    ...mapState({
+      storeData: (state) => state.printData.storeData
+    })
+  },
   methods: {
     submitForm: function(type) {}
   },
-  created: function() {},
-  mounted: function() {},
+  created: function() {
+    if (!this.storeData.value) {
+      this.$router.push({ path: '/chiocestore' });
+      return;
+    }
+  },
   methods: {
     onFileChange() {
       console.log(this.$refs.fileArr);
@@ -81,7 +101,12 @@ export default {
       const file = this.$refs.fileArr.files[0];
       this.fileList.push({
         filename: file.name,
-        filetype: file.type
+        filetype: file.type,
+        number: 1,
+        size: ['A4'],
+        color: ['黑白'],
+        page: ['单面'],
+        composite: []
       });
       //   return;
       //   var oMyForm = new FormData();
@@ -95,21 +120,23 @@ export default {
       this.fileList.splice(index, 1);
     },
     onSubmitFile() {
-      let filesArr = [];
-      this.fileList.forEach((element) => {
-        if (element.filename) {
-          filesArr.push(element.filename);
-        }
-      });
-      console.log(filesArr.join(','));
-      //   return;
-      wx.miniProgram.navigateTo({
-        url: `SetConfig?files=${filesArr.join(',')}`
-      });
+      if (this.fileList.length == 0) {
+        this.$vux.toast.show({
+          text: '请选择文件',
+          type: 'text'
+        });
+        return;
+      }
+
+      let printData = { ...this.$store.state.printData };
+      printData.fileData = this.fileList;
+      // 将文件数据存入store
+      this.$store.dispatch('changePrintdata', printData);
+      this.$router.push({ path: '/setconfig' });
     },
     onBack() {
-      wx.miniProgram.navigateTo({
-        url: 'ChioceStore'
+      this.$router.push({
+        path: '/chiocestore'
       });
     }
   }

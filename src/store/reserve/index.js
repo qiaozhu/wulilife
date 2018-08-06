@@ -10,14 +10,19 @@ Vue.use(Vuex);
 // 当前模块
 const moduledata = {
   modulekey: 'reserve',
-  modulename: '预约打印',
-  printData: {} //打印相关数据
+  modulename: '预约打印'
 };
 
 // 定义vuex
 const state = {
   g_config: g_config, //全局布局配置
-  moduledata: moduledata //当前模块数据
+  moduledata: moduledata, //当前模块数据
+  //打印相关数据
+  printData: {
+    storeData: {},
+    fileData: {},
+    configData: {}
+  }
 };
 
 export default new Vuex.Store({

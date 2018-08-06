@@ -11,10 +11,8 @@
       <popup-picker title="门店"
         placeholder="请选择"
         popup-title="请选择"
-        :data="list"
+        :data="storeList"
         v-model="storeVal"
-        @on-show="onShow"
-        @on-hide="onHide"
         @on-change="onChange"
         show-name>
         <!-- <template slot="title"
@@ -50,23 +48,30 @@ export default {
   },
   data: function() {
     return {
-      list: [[{ name: '广东', value: 'gd' }, { name: '广西', value: 'gx' }]],
-      storeVal: [],
-      storeValObj: {}
+      storeList: [[{ name: '广东', value: 'gd' }, { name: '广西', value: 'gx' }]],
+      storeVal: ['gd'],
+      storeValObj: { name: '广东', value: 'gd' }
     };
   },
   created() {},
   methods: {
     // 选项变更保存选中对象
     onChange(val) {
-      this.storeValObj = common.getArrayObject(val, 'value', this.list[0]);
+      this.storeValObj = common.getArrayObject(val, 'value', this.storeList[0]);
     },
     onJumpStep() {
+      if (this.storeVal.length == 0) {
+        this.$vux.toast.show({
+          text: '请选择门店',
+          type: 'text'
+        });
+        return;
+      }
       let printData = { ...this.$store.state.printData };
       printData.storeData = this.storeValObj;
       // 将选中门店数据存入store
       this.$store.dispatch('changePrintdata', printData);
-      this.$router.push({ path: '/index' });
+      this.$router.push({ path: '/uploadfile' });
     }
   }
 };
