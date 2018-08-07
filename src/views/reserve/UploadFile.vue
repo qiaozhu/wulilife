@@ -1,16 +1,15 @@
 <template>
   <div class="layout-content">
-    <div class="van-center"
-      style="padding-top: 35px;">
-      <img src="../../assets/img/vue-logo.png"
+    <div class="print-logo-box">
+      <img src="../../assets/img/print-logo.png"
         alt=""
         class="print-logo">
     </div>
     <div class="doc-title">选择文件</div>
     <div class="doc-subtitle">文件格式为只能未word，Excel，pdf，jpg，PPT，caj。 为防止word版本不同导致格式变化，建议上传PDF格式。
     </div>
-    <div class="van-panel bg-white">
-      <div class="weui-uploader c-padding">
+    <div class="upload-panel">
+      <div style="padding:12px 15px;">
         <div>
           <div>
             <a href="javascript:;"
@@ -27,21 +26,21 @@
           <div v-for="(el,index)  in fileList"
             :key="index"
             class="uploader-row">
-            <div class="van-pull-right">
-              <i class="iconfont icon-chenggong van-c-green"></i>
-              <span class="van-c-red"
+            <div class="filelist-pull-right">
+              <i class="iconfont icon-chenggong font-green"></i>
+              <span class="font-red"
                 style="margin-left:20px"
                 @click="onDeleteFile(index)">删除</span>
             </div>
             <div class="filelist-pull-left">
-              <i class="iconfont icon-yundan van-c-gray"></i>
+              <i class="iconfont icon-orderBlank font-gray"></i>
               <span style="padding-left:5px;">{{ el.filename }}</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="submit-box">
+    <div class="button-box">
       <x-button type="primary"
         @click.native="onSubmitFile">确定</x-button>
       <x-button @click.native="onBack">返回</x-button>
@@ -144,8 +143,13 @@ export default {
 </script>
 
 <style>
-  .van-center {
-    text-align: center;
+  .upload-panel {
+    background: #ffffff;
+  }
+
+  .uploader-row {
+    height: 40px;
+    line-height: 40px;
   }
   .filelist-pull-left {
     margin-right: 80px;
@@ -153,67 +157,12 @@ export default {
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .van-pull-right {
+  .filelist-pull-right {
     float: right;
     line-height: 38px;
   }
-
-  .print-logo {
-    width: 60px;
-    height: 57px;
-  }
-
-  .doc-title {
-    padding: 15px 0;
-    margin: 10px 15px;
-    line-height: 25px;
-    font-size: 25px;
-    color: #222;
-  }
-
-  .doc-subtitle {
-    padding: 5px 15px 12px;
-  }
-
-  .c-padding {
-    padding: 12px 15px;
-  }
-
-  .c-padding-lr {
-    padding: 0 15px;
-  }
-
-  .c-padding-tb {
-    padding: 12px 0;
-  }
-
-  .weui-uploader {
-    padding: 12px 15px;
-  }
-
-  .uploader-row {
-    height: 40px;
-    line-height: 40px;
-  }
-
   .uploader-filename {
     margin-right: 40px;
-  }
-
-  .bg-white {
-    background: #ffffff;
-  }
-
-  .van-c-gray {
-    color: #c9c9c9 !important;
-  }
-
-  .van-c-green {
-    color: #06bf04 !important;
-  }
-
-  .van-c-red {
-    color: #ff4444 !important;
   }
 
   .upload-filebtn {
@@ -241,37 +190,5 @@ export default {
     right: 0;
     top: 0;
     opacity: 0;
-  }
-
-  .submit-box {
-    padding: 15px 0;
-    margin: 10px 15px;
-    font-size: 25px;
-  }
-
-  .submit-btn {
-    width: 100%;
-    margin-left: auto;
-    -webkit-tap-highlight-color: transparent;
-    overflow: hidden;
-    margin-bottom: 0;
-    margin-right: 0;
-    color: #fff;
-    background-color: #f44;
-    border: none;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 2px;
-    font-size: 16px;
-    line-height: 45px;
-    height: 45px;
-    text-decoration: none;
-    text-align: center;
-    vertical-align: middle;
-  }
-  .submit-btn.default {
-    color: #333;
-    background-color: #fff;
-    border: 1px solid #eee;
   }
 </style>

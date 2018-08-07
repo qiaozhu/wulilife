@@ -15,16 +15,6 @@
         v-model="storeVal"
         @on-change="onChange"
         show-name>
-        <!-- <template slot="title"
-          slot-scope="props">
-          <span :class="props.labelClass"
-            :style="props.labelStyle"
-            style="height:24px;">
-            <span class="demo-icon demo-icon-big"
-              style="font-size:20px;vertical-align:middle;"></span>
-            <span style="vertical-align:middle;">手机</span>
-          </span>
-        </template> -->
       </popup-picker>
     </group>
     <div class="button-box">
@@ -36,14 +26,12 @@
 
 <script>
 import common from '@/utils/common';
-import { PopupPicker, Group, Cell, CellBox, XButton } from 'vux';
+import { Group, PopupPicker, XButton } from 'vux';
 
 export default {
   components: {
     Group,
     PopupPicker,
-    Cell,
-    CellBox,
     XButton
   },
   data: function() {

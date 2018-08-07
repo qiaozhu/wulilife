@@ -1,33 +1,26 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import mutations from './mutations'
-import actions from './actions'
-import {
-    router,
-    state as _state
-} from '@/router/order'
-import g_config from '../global'
+import Vue from 'vue';
+import Vuex from 'vuex';
+import mutations from './mutations';
+import actions from './actions';
+// 导出全局配置
+import g_config from '../global';
+
 Vue.use(Vuex);
 
-
+// 当前模块
+const moduledata = {
+  modulekey: 'mycenter',
+  modulename: '个人中心'
+};
 
 // 定义vuex
 const state = {
-    moduledata: _state.moduledata, //当前模块数据
-    menudata: _state.menudata, //左侧菜单数据
-    regionData: [], //省市区数据
-    g_config: g_config
-}
+  g_config: g_config, //全局布局配置
+  moduledata: moduledata //当前模块数据
+};
 
-
-var store = new Vuex.Store({
-    state,
-    mutations,
-    actions
-})
-
-export {
-    router,
-    store
-}
-//我们规定每个模块一个文件夹  下面有4个文件 按这个标准写
+export default new Vuex.Store({
+  state,
+  mutations,
+  actions
+});

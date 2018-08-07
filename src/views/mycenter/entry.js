@@ -3,8 +3,8 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import VueRouter from 'vue-router';
 import FastClick from 'fastclick';
-import store from '@/store/reserve/index';
-import router from '@/router/reserve';
+import store from '@/store/mycenter/index';
+import router from '@/router/mycenter';
 import Home from './Home';
 
 //加载vuex和router

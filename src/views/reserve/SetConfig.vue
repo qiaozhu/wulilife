@@ -6,7 +6,7 @@
         alt="">
     </div>
     <div class="doc-title">打印设置</div>
-    <div class="doc-subtitle">请填写</div>
+    <div class="doc-subtitle">如有特殊需求，请填留言/备注。</div>
     <group v-for="(el,index) in fileData"
       :key="index"
       label-width="4.5em"
@@ -41,30 +41,27 @@
         :data="compositeOption"
         v-model="el.composite"
         value-text-align="left"></popup-picker>
+
+    </group>
+    <group label-width="4.5em"
+      label-margin-right="1.5em"
+      label-align="left"
+      title="留言/备注">
+      <x-textarea placeholder="请填写"
+        :show-counter="true"
+        :max="200"
+        :rows="3"></x-textarea>
     </group>
     <div class="button-box">
       <x-button type="primary"
         @click.native="onSubmitSet">确定</x-button>
+      <x-button @click.native="onBack">返回</x-button>
     </div>
   </div>
 </template>
 
 <script>
-import {
-  XButton,
-  GroupTitle,
-  Group,
-  Cell,
-  XInput,
-  Selector,
-  PopupPicker,
-  Datetime,
-  XNumber,
-  ChinaAddressData,
-  XAddress,
-  XTextarea,
-  XSwitch
-} from 'vux';
+import { XButton, GroupTitle, Group, PopupPicker, XNumber, XTextarea } from 'vux';
 import { mapState } from 'vuex';
 
 export default {
@@ -72,15 +69,9 @@ export default {
     XButton,
     Group,
     GroupTitle,
-    Cell,
-    XInput,
-    Selector,
     PopupPicker,
-    XAddress,
-    Datetime,
     XNumber,
-    XTextarea,
-    XSwitch
+    XTextarea
   },
   data() {
     return {
@@ -99,6 +90,12 @@ export default {
   methods: {
     onSubmitSet() {
       console.log(this.fileData);
+      this.$router.push({ path: '/payment' });
+    },
+    onBack() {
+      this.$router.push({
+        path: '/uploadfile'
+      });
     }
   },
   created: function() {
