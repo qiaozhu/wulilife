@@ -7,7 +7,11 @@
     </div>
     <div class="doc-title">选择门店</div>
     <div class="doc-subtitle">请选择就近门店，方便取件。</div>
+
     <group title="选择门店">
+      <cell title="优惠">
+        <span class="font-red">$ 1.50</span>
+      </cell>
       <popup-picker title="门店"
         placeholder="请选择"
         popup-title="请选择"
@@ -26,12 +30,14 @@
 
 <script>
 import common from '@/utils/common';
-import { Group, PopupPicker, XButton } from 'vux';
+import { GroupTitle, Group, PopupPicker, Cell, XButton } from 'vux';
 
 export default {
   components: {
+    GroupTitle,
     Group,
     PopupPicker,
+    Cell,
     XButton
   },
   data: function() {

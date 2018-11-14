@@ -19,7 +19,6 @@
         button-style="round"
         :min="1"
         :max="999"></x-number>
-
       <popup-picker title="尺寸"
         placeholder="请选择尺寸"
         :data="sizeOption"
@@ -41,7 +40,6 @@
         :data="compositeOption"
         v-model="el.composite"
         value-text-align="left"></popup-picker>
-
     </group>
     <group label-width="4.5em"
       label-margin-right="1.5em"
