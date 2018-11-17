@@ -35,7 +35,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true, // necessary for FriendlyErrorsPlugin
     watchOptions: {
       poll: config.dev.poll
-    }
+    },
+    disableHostCheck: true
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -90,7 +91,9 @@ module.exports = new Promise((resolve, reject) => {
         new FriendlyErrorsPlugin({
           compilationSuccessInfo: {
             // messages: [`Your application is running here: http://${config.dev.host}:${port}`]
-            messages: [`Your application is running here: http://localhost:${port}/${config.dev.defaultHtml}`]
+            messages: [
+              `Your application is running here: http://localhost:${port}/${config.dev.defaultHtml}`
+            ]
           },
           onErrors: config.dev.notifyOnErrors ? utils.createNotifierCallback() : undefined
         })
